@@ -1,2 +1,9 @@
-fastapi==0.115.8
-uvicorn==0.34.0
+fastapi
+uvicorn[standard]
+pydantic
+passlib[bcrypt]
+python-jose
+python-multipart
+bcrypt==3.2.2
+
+

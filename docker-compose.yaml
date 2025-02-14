@@ -1,0 +1,31 @@
+# This docker-compose file orchestrates both the backend and the frontend services.
+# It is placed in the backend repository. Follow these steps to use it:
+#
+# 1. Make sure you have cloned both the backend and frontend repositories.
+# 2. In the backend repository, update the paths (if necessary) to point to the correct location
+#    of the frontend source code. In this example, we assume that the frontend repository is
+#    a sibling directory of the backend repository.
+# 3. Run docker-compose up --build from the backend folder.
+# 4. The backend will be exposed on port 3001 and the frontend on port 3000 on your host.
+#
+# Note:
+# - The backend service uses a volume named "db_data" to persist the JSON database.
+# - Adjust environment variables (e.g., DB_FILE) as needed.
+services:
+  backend:
+    build: ./backend   # Build the backend service
+    container_name: rubik_backend
+    ports:
+      - "3001:8000"    # Maps the container's port 8000 to the host's port 3001 for the backend API
+    environment:
+      - DB_FILE=/data/db.json # Sets the path to the JSON database file
+    volumes:
+      - db_data:/data   # Pesists the JSON database file in a docker volume called "db_data"
+  frontend:
+    build: ./frontend   # Build the frontend service
+    container_name: rubik_frontend
+    ports:
+      - "3000:80"      # Maps the container's port 80 to the host's port 3000 for the frontend
+
+volumes:
+  db_data:
