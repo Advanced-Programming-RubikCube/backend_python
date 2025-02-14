@@ -4,7 +4,7 @@ It handles user registration, password hashing, authentication, and token genera
 
 Author: Santiago Andrés Benavides Coral <sabenavidesc@udistrital.edu.co>
 
-This file is part of [Nombre del Proyecto].
+This file is part of RUBIKTIMER.
 
 RUBIKTIMER is free software: you can redistribute it and/or 
 modify it under the terms of the GNU General Public License as 
